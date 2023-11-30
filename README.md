@@ -7,5 +7,4 @@ I don't want to let the AI generate the whole code when solving problems, but I 
 ## Solutions and Assignments:
 
 * [AoC 2023](/AoC2023/AoC2023.md)
-	* [Assignment](https://adventofcode.com/2023)
-	* [My solution by assignments](https://sem-se-na-neco-odkazu.com)
+	* [AoC page for 2023](https://adventofcode.com/2023)
