@@ -10,19 +10,9 @@ namespace Day1_Trebuchet.Models
 {
     internal class Trebuchet
     {
-        private readonly List<string> numbers = new List<string>{ "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-        private Dictionary<string, int> myDict = new Dictionary<string, int> 
-        {
-            { "one", 1 },
-            { "two", 2 },
-            { "three", 3 },
-            { "four", 4 },
-            { "five",5 },
-            { "six",6 },
-            { "seven",7 },
-            { "eight",8 },
-            { "nine",9 }
-        }; 
+        private readonly List<string> numbers = new List<string>{ "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+        private readonly List<string> numbers2 = new List<string> { "o1e", "t2o", "th3ee", "fo4r", "fi5e", "s6x", "se7en", "ei8ht", "ni9e" };
+        private Dictionary<string, int> myDict = new Dictionary<string, int>(); 
         private List<string> inputLines;
         public List<string> InputLines { get { return inputLines; } set { inputLines = value; GetCalibrationValues(); } }
         public List<int> calibrationValues = new List<int>();
@@ -39,30 +29,23 @@ namespace Day1_Trebuchet.Models
                 if(string.IsNullOrEmpty(line)) continue;
                 SearchNumbers(line);
             }
-            /*for(int i = 0; i < InputLines.Count; i++)
-            {
-                myDict.Add(InputLines[i], CalibrationValues[i]);
-            }*/
         }
         private void SearchNumbers(string input)
         {
             string pattern = @"("+ String.Join("|", numbers.Select(Regex.Escape)) + @")";
             MatchCollection matches = Regex.Matches(input, pattern, RegexOptions.IgnoreCase);
-            List<int> results = matches.Cast<Match>()
-                .Select(x =>
-                {
-                    if (myDict.ContainsKey(x.Value))
-                    {
-                        return myDict[x.Value];
-                    }
-                    else
-                    {
-                        return Int32.Parse(x.Value);
-                    }
-                })
-                .ToList();
-            
-            CalibrationValues.Add(Int32.Parse(String.Concat(results.First(), results.Last())));
+            List<int> nalezenaCisla = matches.Cast<Match>().Select(x=>numbers.IndexOf(x.Value.ToLower())+1).ToList();
+            foreach(int num in nalezenaCisla)
+            {
+                input = input.Replace(numbers[num - 1], numbers2[num-1]);
+            }
+            string[] resNumb = new string[2];
+            pattern = @"\D+";
+            input = Regex.Replace(input, pattern, String.Empty);
+            List<char> tempValues = input.ToCharArray().ToList();
+            resNumb[0] = String.IsNullOrEmpty(tempValues.First().ToString()) ? tempValues[1].ToString() : tempValues.First().ToString();
+            resNumb[1] = String.IsNullOrEmpty(tempValues.Last().ToString()) ? tempValues[tempValues.Count - 2].ToString() : tempValues.Last().ToString();
+            CalibrationValues.Add(Int32.Parse(String.Concat(resNumb)));
         } 
 
         public static async Task<string> ReadAll(CancellationToken cancellationToken = default)
@@ -74,6 +57,10 @@ namespace Day1_Trebuchet.Models
         public string PrintTrebuchet()
         {
             var output = new StringBuilder();
+            /*foreach(string line in InputLines)
+            {
+                output.AppendLine(line);
+            }*/
             BigInteger integer = 0;
             foreach(var i in CalibrationValues)
             {
