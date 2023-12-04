@@ -12,12 +12,17 @@ namespace Day4_Scratchcards.Models
         public string Text { get; private set; }
         public List<int> WinningNumbers { get; private set; }
         public List<int> MyNumbers { get; private set; }
-        public double CardValue { get { return GetCardValue(); } }
+        public int CardValue { get { return GetCardValue(); } }
+        public int Matches {  get; private set; }
 
         public Card(string text)
         {
             Text = text.Replace("\r", String.Empty);
             GetNumbers();
+            string[] text1 = text.Split(':','|');
+            var l = Regex.Matches(text1[1], @"\d+").Select(x => x.Value);
+            var r = Regex.Matches(text1[2], @"\d+").Select(x => x.Value);
+            Matches = l.Intersect(r).Count();
         }
 
         private void GetNumbers()
@@ -32,10 +37,10 @@ namespace Day4_Scratchcards.Models
                 temp2[0].Remove(0, 1);
             }
             WinningNumbers = Regex.Split(temp2[0],@"\W+").Select(x=>int.Parse(x)).ToList();
-            MyNumbers = Regex.Split(temp2[1],@"\W+").Select(x=>int.Parse(x)).ToList();
+            MyNumbers = Regex.Split(temp2[1], @"\W+").Select(x => { if(x != String.Empty) { return int.Parse(x); }else { return 0; } }).ToList();
         }
 
-        public double GetCardValue()
+        public int GetCardValue()
         {
             int iter = 0;
             foreach(var i in WinningNumbers)
@@ -45,8 +50,7 @@ namespace Day4_Scratchcards.Models
                     iter++;
                 }
             }
-
-            double result = 2 ^ (iter - 1);
+            int result = (int)Math.Pow(2,iter-1);
             return result;
         }
     }

@@ -18,14 +18,27 @@ namespace Day4_Scratchcards.Models
             CardsLines = input.Split('\n').Select(x => new Card(x)).ToList();
         }
         
-        public double GetGameValue()
+        public int GetGameValue()
         {
-            double value = 0;
+            int value = 0;
             foreach (var card in CardsLines)
             {
                 value += card.GetCardValue();
             }
             return value;
+        }
+        public int GetScratchcardsNumber()
+        {
+            var counts = CardsLines.Select(x=>x.Matches).ToList();
+            for(int i = 0; i < CardsLines.Count; i++)
+            {
+                var (card, count) = (CardsLines[i], counts[i]);
+                for(int j = 0; j < card.Matches; j++)
+                {
+                    counts[i + j + 1] += count;
+                }
+            }
+            return counts.Sum();
         }
     }
 }
