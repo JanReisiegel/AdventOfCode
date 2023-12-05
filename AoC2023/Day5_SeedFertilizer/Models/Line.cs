@@ -8,21 +8,22 @@ namespace Day5_SeedFertilizer.Models
 {
     public class Line
     {
-        public int SourceRangeStart {  get; set; }
-        public int DestinationRangeStart { get; set; }
-        public int RangeLength {  get; set; }
+        public long SourceRangeStart {  get; set; }
+        public long DestinationRangeStart { get; set; }
+        public long RangeLength {  get; set; }
+        
 
         public Line(string input)
         {
             var numbers = input.Replace("\r", String.Empty).Split(" ").ToList();
-            DestinationRangeStart = int.Parse(numbers[0]);
-            SourceRangeStart = int.Parse(numbers[1]);
-            RangeLength = int.Parse(numbers[2]);
+            DestinationRangeStart = long.Parse(numbers[0]);
+            SourceRangeStart = long.Parse(numbers[1]);
+            RangeLength = long.Parse(numbers[2]);
         }
 
-        public List<int> GetCorresponds()
+        public List<long> GetCorresponds()
         {
-            List<int> result = new List<int>();
+            List<long> result = new List<long>();
             for(int i = 0;i<RangeLength;i++)
             {
                 result.Add(DestinationRangeStart + i);

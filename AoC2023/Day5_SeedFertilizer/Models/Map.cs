@@ -8,19 +8,10 @@ namespace Day5_SeedFertilizer.Models
 {
     class Map
     {
-        public string Name { get; set; }
         public List<Line> Lines { get; set; }
-        public List<int> Seeds { get; set; } = new List<int>();
         public Map(string input)
         {
-            var inString = input.Split(":\n").ToList();
-            Name = inString[0];
-            Lines = inString[1].Split("\n").Select(x => new Line(x)).ToList();
-            CalculateSeed();
-        }
-        private void CalculateSeed()
-        {
-             
+            Lines = input.Split("\n").Skip(1).Select(x => new Line(x)).ToList();
         }
     }
 }
