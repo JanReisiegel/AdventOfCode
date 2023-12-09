@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day6_WaitForIt", "Day6_Wait
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day7_CamelCards", "Day7_CamelCards\Day7_CamelCards.csproj", "{B8B33D25-C6ED-4865-9B13-9697C51DE5CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day8_HauntedWasteland", "Day8_HauntedWasteland\Day8_HauntedWasteland.csproj", "{5ED643C2-D3DD-4E2D-9125-188E8A65B700}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day8_HauntedWasteland", "Day8_HauntedWasteland\Day8_HauntedWasteland.csproj", "{5ED643C2-D3DD-4E2D-9125-188E8A65B700}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day9_MirageMaintenance", "Day9_MirageMaintenance\Day9_MirageMaintenance.csproj", "{FA15E06B-0A5D-44C2-8C71-62CE48903F24}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{5ED643C2-D3DD-4E2D-9125-188E8A65B700}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5ED643C2-D3DD-4E2D-9125-188E8A65B700}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5ED643C2-D3DD-4E2D-9125-188E8A65B700}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA15E06B-0A5D-44C2-8C71-62CE48903F24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA15E06B-0A5D-44C2-8C71-62CE48903F24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA15E06B-0A5D-44C2-8C71-62CE48903F24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA15E06B-0A5D-44C2-8C71-62CE48903F24}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
