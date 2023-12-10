@@ -1,5 +1,4 @@
 ﻿using Day10_PipeMaze.Models;
-char StartSymbol = 'S';
 
 Console.WriteLine("-----------------------------------------------\n\n\tTest1\n");
 var test1 = await File.ReadAllLinesAsync("E:/++AdventOfCode/AoC2023/Day10_PipeMaze/Test1.txt"); //desktop
