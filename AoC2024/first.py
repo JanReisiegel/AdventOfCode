@@ -37,7 +37,7 @@ def worker_part_1(file_path):
     '''Work on the input file'''
     locations = []
     result = 0
-    with open(file_path) as f:
+    with open(file_path, 'r', encoding='utf-8') as f:
         my_input = f.read()
         locations = split_input_part_1(my_input=my_input)
         f.close()
@@ -65,7 +65,7 @@ def split_input_part_2(my_input):
 def worker_part_2(file_path):
     '''Work on the input file'''
     result = 0
-    with open(file_path) as f:
+    with open(file_path, 'r', encoding='utf-8') as f:
         my_input = f.read()
         result = split_input_part_2(my_input=my_input)
         f.close()
