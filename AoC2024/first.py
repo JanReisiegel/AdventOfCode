@@ -21,15 +21,15 @@ def split_input_part_1(my_input):
     left_ids = []
     right_ids = []
     locations = []
-    for i in range(len(lines)):
-        line = lines[i].split()
-        left_ids.append(int(line[0]))
-        right_ids.append(int(line[1]))
-    #seřadí left_ids a right_ids od nejmenšího po největší
+    for line in lines:
+        new_line = line.split()
+        left_ids.append(int(new_line[0]))
+        right_ids.append(int(new_line[1]))
+    # seřadí left_ids a right_ids od nejmenšího po největší
     left_ids.sort()
     right_ids.sort()
-    for i in range(len(left_ids)):
-        locations.append(Location(left_ids[i], right_ids[i]))
+    for left_id in left_ids:
+        locations.append(Location(left_id, right_ids.pop(0)))
     return locations
 
 
@@ -52,10 +52,10 @@ def split_input_part_2(my_input):
     left_ids = []
     right_ids = []
     results = []
-    for i in range(len(lines)):
-        line = lines[i].split()
-        left_ids.append(int(line[0]))
-        right_ids.append(int(line[1]))
+    for line in lines:
+        new_line = line.split()
+        left_ids.append(int(new_line[0]))
+        right_ids.append(int(new_line[1]))
     for left_id in left_ids:
         number = right_ids.count(left_id)
         results.append(left_id * number)
