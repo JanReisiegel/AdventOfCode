@@ -11,20 +11,73 @@ class Location:
         '''Get the distance between the two locations'''
         return abs(self.left_id - self.right_id)
 
+    def __str__(self):
+        return f'{self.left_id} {self.right_id}'
 
-def split_input(my_input):
+
+def split_input_part_1(my_input):
     '''Split the input into a list of strings'''
     lines = my_input.split('\n')
+    left_ids = []
+    right_ids = []
     locations = []
     for i in range(len(lines)):
         line = lines[i].split()
-        locations.append(Location(int(line[0]), int(line[1])))
+        left_ids.append(int(line[0]))
+        right_ids.append(int(line[1]))
+    #seřadí left_ids a right_ids od nejmenšího po největší
+    left_ids.sort()
+    right_ids.sort()
+    for i in range(len(left_ids)):
+        locations.append(Location(left_ids[i], right_ids[i]))
     return locations
 
 
-if __name__ == "__main__":
-    with open('01/example1.txt') as f:
+def worker_part_1(file_path):
+    '''Work on the input file'''
+    locations = []
+    result = 0
+    with open(file_path) as f:
         my_input = f.read()
-        print(my_input)
-        print(split_input(my_input))
+        locations = split_input_part_1(my_input=my_input)
         f.close()
+    for location in locations:
+        result += location.get_distance()
+    return result
+
+
+def split_input_part_2(my_input):
+    '''Split the input into a list of strings'''
+    lines = my_input.split('\n')
+    left_ids = []
+    right_ids = []
+    results = []
+    for i in range(len(lines)):
+        line = lines[i].split()
+        left_ids.append(int(line[0]))
+        right_ids.append(int(line[1]))
+    for left_id in left_ids:
+        number = right_ids.count(left_id)
+        results.append(left_id * number)
+    return sum(results)
+
+
+def worker_part_2(file_path):
+    '''Work on the input file'''
+    result = 0
+    with open(file_path) as f:
+        my_input = f.read()
+        result = split_input_part_2(my_input=my_input)
+        f.close()
+    return result
+
+
+if __name__ == "__main__":
+    example1 = worker_part_1('01/example1.txt')
+    print(f'Example 1: {example1}')
+    part1 = worker_part_1('01/puzzle1.txt')
+    print(f'Part 1: {part1}')
+    example2 = worker_part_2('01/example1.txt')
+    print(f'Example 2: {example2}')
+    part2 = worker_part_2('01/puzzle1.txt')
+    print(f'Part 2: {part2}')
