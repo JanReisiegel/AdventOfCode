@@ -1,3 +1,6 @@
+'''Advent of Code 2024, Day 2, Part 1 & 2'''
+
+
 class Report:
     '''Class to handle the report'''
     def __init__(self, numbers):
@@ -7,7 +10,7 @@ class Report:
         '''Get the status of the report
         1 for: The levels are either all increasing or all decreasing.
             Any two adjacent levels differ by at least one and at most three.
-        0 for: The levels are not all increasing or all decreasing.'''        
+        0 for: The levels are not all increasing or all decreasing.'''
         # Check if the levels are increasing or decreasing
         increasing_or_decreasing = (self.numbers == sorted(self.numbers) or
                                     self.numbers == sorted(self.numbers,
@@ -30,10 +33,10 @@ class Report:
         for i in range(len(self.numbers)):
             temp = self.numbers[:i] + self.numbers[i + 1:]
             good = self.is_good(temp)
-            #print(temp, self.numbers, good)
+            # print(temp, self.numbers, good)
             if good:
                 result = True
-        #print(result, self.numbers)
+        # print(result, self.numbers)
         return int(result)
 
     def is_good(self, numbers):
@@ -47,6 +50,7 @@ class Report:
                 good = False
                 break
         return good and increasing_or_decreasing
+
 
 def split_content_part_1(content):
     '''Split the content into a list of strings'''
