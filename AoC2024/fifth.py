@@ -99,7 +99,6 @@ def repaire_update(update, rules):
     repaired_update = []
     update_set = set(update)
 
-
     def visit(node):
         if node in visited:
             return
