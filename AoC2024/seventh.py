@@ -1,5 +1,4 @@
 '''Advent of Code 2024 day 7 part 1 and 2'''
-from itertools import permutations, product
 
 
 class Calibration:
