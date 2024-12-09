@@ -30,7 +30,6 @@ class FileSystem:
         '''Move blocks'''
         for disk_part_1 in self.disk:
             pass
-        
 
 
 def worker_1(file_path):
