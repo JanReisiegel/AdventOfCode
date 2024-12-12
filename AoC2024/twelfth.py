@@ -33,9 +33,8 @@ def calculate(matrix, row, col, row_len, col_len):
                     perimeter_dict[(direction_row, direction_col)] = set()
                 perimeter_dict[(direction_row, direction_col)].add((r, c))
     sides = 0
-    for key, values in perimeter_dict.items():
+    for _, values in perimeter_dict.items():
         seen_perimeter = set()
-        old_sides = sides
         for (value_row, value_col) in values:
             if (value_row, value_col) not in seen_perimeter:
                 sides += 1
