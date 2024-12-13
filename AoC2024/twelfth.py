@@ -64,7 +64,8 @@ def worker(file_path):
     col_len = len(input_matrix[0])
     for row in range(row_len):
         for col in range(col_len):
-            calculate_1, calculate_2 = calculate(input_matrix, row, col, row_len, col_len)
+            calculate_1, calculate_2 = calculate(input_matrix,
+                                                 row, col, row_len, col_len)
             result_1 += calculate_1
             result_2 += calculate_2
     return result_1, result_2
