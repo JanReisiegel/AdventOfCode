@@ -1,4 +1,4 @@
-'''file with helper functions for AoC 2025 challenges'''
+'''file with helper functions for AoC 2025 challenges '''
 
 
 def read_input(file_path):
