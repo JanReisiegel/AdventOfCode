@@ -8,7 +8,6 @@ def main(input_path, start=50):
     operations = h.read_input(input_path)
     part1 = 0
     part2 = 0
-    # results = []
     for op in operations:
         tmp_position = current_position
         direction = op[0]
@@ -26,7 +25,6 @@ def main(input_path, start=50):
         if current_position == 0:
             part1 += 1
             part2 += 1
-    # h.write_output("01/output.txt", results)
     return part1, part2
 
 
