@@ -42,9 +42,9 @@ def right_turn(current_value, turn_value):
 
 if __name__ == "__main__":
     print("Welcome to the first day of 12 Days of Code 2025!")
-    part1_test, part2_test = main("01/example.txt")
+    part1_test, part2_test = main("src/01/example.txt")
     print(f"The result after all operations is (TEST Part1): {part1_test}")
-    part1_real, part2_real = main("01/puzzle.txt")
+    part1_real, part2_real = main("src/01/puzzle.txt")
     print(f"The result after all operations is (PUZZLE Part1): {part1_real}")
     print("-" * 40)
     print(f"The number of times we hit 0 (TEST Part2): {part2_test}")

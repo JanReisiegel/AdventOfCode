@@ -1,10 +1,17 @@
 '''file with helper functions for AoC 2025 challenges '''
 
 
-def read_input(file_path):
+def read_input(file_path) -> list[str]:
     """Reads the input file and returns its content as a list of lines."""
     with open(file_path, 'r', encoding='utf-8') as file:
         return [line.strip() for line in file.readlines()]
+    
+
+def read_input_splited(file_path, delimiter=',') -> list[str]:
+    """Reads the input file and splits its content by the given delimiter."""
+    with open(file_path, 'r', encoding='utf-8') as file:
+        content = file.read().strip()
+        return content.split(delimiter)
 
 
 def write_output(file_path, data):
