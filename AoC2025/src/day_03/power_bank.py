@@ -25,27 +25,19 @@ class PowerBank:
 
     def calculate_twelve_bat_joltage(self) -> int:
         '''Calculate the best joltage configuration for twelve batteries.'''
-        joltages = []
-        joltages_tuples = itertools.permutations(self.batteries, 12)
-        print(len(joltages_tuples))
-        joltages = [1, 0]
-        return max(joltages)
-
-    def generate_indices(self, n, k, start_index, current_combination, results):
-        '''Rekurzivně generuje kombinace 'k' indexů, 
-        které musí být ve vzestupném pořadí.'''
-        if k == 0:
-            results.append(current_combination)
-            return
-        max_index = n - k
-        for i in range(start_index, max_index + 1):
-            self.generate_indices(
-                n,
-                k - 1,
-                i + 1,
-                current_combination + (i,),
-                results
-            )
+        joltage = ""
+        tmp_index = 0
+        print(self.batteries)
+        for i in range(13, 1, -1):
+            print(self.batteries[tmp_index:len(self.batteries)-i])
+            tmp_max = max(self.batteries[tmp_index:len(self.batteries)-i])
+            joltage += str(tmp_max)
+            print(joltage)
+            tmp_index = self.batteries[tmp_index:len(self.batteries)-i]. \
+                index(tmp_max) + tmp_index + 1
+        print(self.batteries, joltage)
+        print("-"*40)
+        return int(joltage)
 
     def __str__(self):
         return f'PowerBank(batteries={self.batteries})'
