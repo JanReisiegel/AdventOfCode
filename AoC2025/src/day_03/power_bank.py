@@ -1,5 +1,4 @@
 '''Class representing a power bank for storing energy.'''
-import itertools
 
 
 class PowerBank:
@@ -27,16 +26,17 @@ class PowerBank:
         '''Calculate the best joltage configuration for twelve batteries.'''
         joltage = ""
         tmp_index = 0
-        print(self.batteries)
-        for i in range(13, 1, -1):
-            print(self.batteries[tmp_index:len(self.batteries)-i])
+        # print(self.batteries)
+        for i in range(11, -1, -1):
+            # print(self.batteries[tmp_index:len(self.batteries)-i], 
+            # tmp_index, "-", len(self.batteries)-i, i)
             tmp_max = max(self.batteries[tmp_index:len(self.batteries)-i])
             joltage += str(tmp_max)
-            print(joltage)
+            # print(joltage)
             tmp_index = self.batteries[tmp_index:len(self.batteries)-i]. \
                 index(tmp_max) + tmp_index + 1
-        print(self.batteries, joltage)
-        print("-"*40)
+        # print(self.batteries, joltage)
+        # print("-"*40)
         return int(joltage)
 
     def __str__(self):

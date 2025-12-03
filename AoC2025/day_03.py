@@ -15,11 +15,12 @@ def main(input_path):
 if __name__ == "__main__":
     print("Welcome to the third day of 12 Days of Code 2025!")
     part1_example, part2_example = main("src/day_03/example.txt")
-    # part1_puzzle, part2_puzzle = main("src/day_03/puzzle.txt")
+    part1_puzzle, part2_puzzle = main("src/day_03/puzzle.txt")
 
     print(f"Total joltage part 1 (EXAMPLE): {part1_example}")
     print(f"Total joltage part 2 (EXAMPLE): {part2_example}")
 
     print("-"*40)
 
-    # print(f"Total joltage (PUZZLE): {part1_puzzle}, {part2_puzzle}")
+    print(f"Total joltage part 1 (PUZZLE): {part1_puzzle}")
+    print(f"Total joltage part 2 (PUZZLE): {part2_puzzle}")
