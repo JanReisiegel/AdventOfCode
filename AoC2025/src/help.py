@@ -14,6 +14,12 @@ def read_input_splited(file_path, delimiter=',') -> list[str]:
         return content.split(delimiter)
 
 
+def read_input_to_matrix(file_path) -> list[list[str]]:
+    """Reads the input file and returns content as a matrix (list of lists)."""
+    with open(file_path, 'r', encoding='utf-8') as file:
+        return [[char for char in line.strip()] for line in file.readlines()]
+
+
 def write_output(file_path, data):
     """Writes the given data to the output file."""
     with open(file_path, 'w', encoding='utf-8') as file:
