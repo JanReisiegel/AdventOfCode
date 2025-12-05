@@ -16,7 +16,7 @@ def read_input_splited(file_path, delimiter=',') -> list[str]:
 
 def read_input_two_arrays(file_path, delimiter='') -> tuple[list[str],
                                                             list[str]]:
-    """Reads the input file and splits its content into two arrays based 
+    """Reads the input file and splits its content into two arrays based
     on a delimiter line."""
     lines = []
     with open(file_path, 'r', encoding='utf-8') as file:
