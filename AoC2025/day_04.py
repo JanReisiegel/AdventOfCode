@@ -13,7 +13,7 @@ def main(input_path):
 
 
 if __name__ == "__main__":
-    print("Welcome to the third day of 12 Days of Code 2025!")
+    print("Welcome to the fourth day of 12 Days of Code 2025!")
     part1_example, part2_example = main("src/day_04/example.txt")
     part1_puzzle, part2_puzzle = main("src/day_04/puzzle.txt")
 
