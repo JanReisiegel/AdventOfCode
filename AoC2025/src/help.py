@@ -32,6 +32,16 @@ def read_input_to_matrix(file_path) -> list[list[str]]:
         return [[char for char in line.strip()] for line in file.readlines()]
 
 
+def read_input_to_strings_matrix(file_path) -> list[list[str]]:
+    """Reads the input file and returns content as a list of strings."""
+    with open(file_path, 'r', encoding='utf-8') as file:
+        lines = file.readlines()
+        len_lines = len(lines)
+        for i in range(len_lines):
+            lines[i] = lines[i].split()
+        return [list(line) for line in lines]
+
+
 def write_output(file_path, data):
     """Writes the given data to the output file."""
     with open(file_path, 'w', encoding='utf-8') as file:
