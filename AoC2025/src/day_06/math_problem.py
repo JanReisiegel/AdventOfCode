@@ -25,11 +25,3 @@ class MathProblem:
             else:
                 result += 0
         return result
-    
-    def solve2(self) -> int:
-        '''Solves part 2 of the math problem.'''
-        result = 0
-        # Implementation for solving part 2 goes here
-        len_problem = len(self.problems[0])
-        len_problems = len(self.problems) - 1
-        return result
