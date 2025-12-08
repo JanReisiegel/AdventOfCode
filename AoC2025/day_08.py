@@ -9,7 +9,6 @@ def main(input_path):
     coords = h.read_input(input_path)
     boxes = [JunctionBox(coord.split(',')) for coord in coords]
     all_best_distance = []
-    circuits = []
     for box in boxes:
         print(box)
         distances = []
@@ -21,12 +20,23 @@ def main(input_path):
     print("All best distances:")
     for entry in all_best_distance:
         print(f"From {entry[0]} to {entry[1]}: {entry[2]:.2f}")
-    number_boxes = len(boxes)
-    while len(circuits) < number_boxes:
-        
     part1 = 0
     part2 = 0
+    if "example.txt" in input_path:
+        part1, part2 = example_solve(boxes, all_best_distance)
     return part1, part2
+
+
+def example_solve(boxes, distances):
+    '''Solve the example input'''
+    it = 0
+    while it < 10:
+        print(it)
+        box = boxes[it]
+        shortest = distances[it][1]
+        print(f"Box {box} shortest to {shortest}")
+        circuit1 = 
+    return len(boxes), 0
 
 
 if __name__ == '__main__':
