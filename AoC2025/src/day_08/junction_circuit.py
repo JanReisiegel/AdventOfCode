@@ -11,14 +11,11 @@ class JunctionCircuit:
         '''Add a junction box to the circuit'''
         self.boxes.append(box)
 
-    def distance_to(self, other: 'JunctionBox') -> float:
-        '''Calculate the distance to another junction circuit'''
-        tmp_distance = float('inf')
-        for box in self.boxes:
-            distance = box.distance_to(other)
-            if distance < tmp_distance:
-                tmp_distance = distance
-        return tmp_distance
+    def __contains__(self, box: JunctionBox) -> bool:
+        return box in self.boxes
+
+    def __len__(self) -> int:
+        return len(self.boxes)
 
     def __str__(self):
         result = "JunctionCircuit with boxes:\n"

@@ -8,28 +8,22 @@ def main(input_path):
     '''Main function for day 8 challenge'''
     coords = h.read_input(input_path)
     boxes = [JunctionBox(coord.split(',')) for coord in coords]
-    count = 0
-    while True:
-        selected_box = boxes[0]
-        tmp_distance = float('inf')
-        result = None
-        for box in boxes:
-            if box == selected_box:
-                continue
-            print(f"Comparing {selected_box} to {box}")
-            distance = selected_box.distance_to(box)
-            print(f"Distance from {selected_box} to {box} is {distance}")
-            if distance < tmp_distance:
-                tmp_distance = distance
-                result = box
-        boxes.remove(selected_box)
-        boxes.remove(result)
-        boxes.insert(0, JunctionCircuit([selected_box, result]))
-        print(f"Closest to {selected_box} is {result} "
-              f"with distance {tmp_distance}")
-        count += 1
-        if count == 2:
-            break
+    all_best_distance = []
+    circuits = []
+    for box in boxes:
+        print(box)
+        distances = []
+        for other_box in boxes:
+            if box != other_box:
+                distances.append((box, other_box, box.distance_to(other_box)))
+        distances.sort(key=lambda x: x[2])
+        all_best_distance.append(distances[0])      
+    print("All best distances:")
+    for entry in all_best_distance:
+        print(f"From {entry[0]} to {entry[1]}: {entry[2]:.2f}")
+    number_boxes = len(boxes)
+    while len(circuits) < number_boxes:
+        
     part1 = 0
     part2 = 0
     return part1, part2
