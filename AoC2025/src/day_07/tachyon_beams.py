@@ -1,5 +1,5 @@
 '''Class for Tachyon Beams problem'''
-from pprint import pprint
+# from pprint import pprint
 
 
 class TachyonBeams:
@@ -21,9 +21,12 @@ class TachyonBeams:
         row_number = len(new_grid)
         for r in range(1, row_number):
             for c in range(col_number):
-                if new_grid[r][c] == '^':
+                if new_grid[r][c] == '^' and \
+                    (new_grid[r-1][c] == '|'
+                     or new_grid[r-1][c] == 'S'):
                     new_grid[r][c-1] = "|"
                     new_grid[r][c+1] = "|"
-                    if new_grid[r-1][c] == '|' or new_grid[r-1][c] == 'S':
-                        result += 1
+                    result += 1
+                elif new_grid[r-1][c] == '|':
+                    new_grid[r][c] = '|'
         return result
